@@ -17,7 +17,7 @@ Template of Homekit for the Esp8266 based on Arduino
 
 2.打开Arduino，Windows用户点击“文件”>“首选项”，Mac用户点击左上角“Arduino”>“Preference”。
 
-<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303171759207.png?token=AHDJQ6B6ML22YUNGVV3KTSLAH5KIM" alt="image-20210303171759207" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303171759207.png?token=AHDJQ6B6ML22YUNGVV3KTSLAH5KIM" alt="image-20210303171759207" style="zoom: 50%;" />
 
 3.在“附加开发板管理器网址”一栏填上：
 
