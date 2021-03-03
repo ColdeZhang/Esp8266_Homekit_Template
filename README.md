@@ -19,7 +19,7 @@ Template of Homekit for the Esp8266 based on Arduino
 
 <img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303171759207.png?token=AHDJQ6B6ML22YUNGVV3KTSLAH5KIM" alt="image-20210303171759207" style="zoom:50%;" />
 
-3.在“附加开发版管理器网址”一栏填上：
+3.在“附加开发板管理器网址”一栏填上：
 
 > https://arduino.esp8266.com/stable/package_esp8266com_index.json
 
@@ -29,9 +29,23 @@ Template of Homekit for the Esp8266 based on Arduino
 
 ![image-20210303172359306](https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303172359306.png?token=AHDJQ6ARXUN6ORUZVMZZKHDAH5K7A)
 
+5.搜索“esp8266”并安装
+
+<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303174754999.png" alt="image-20210303174754999" style="zoom:50%;" />
+
+6.关闭窗口，打开“工具”>“管理库...”
+
+<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303174922691.png" alt="image-20210303174922691" style="zoom:33%;" />
+
+7.搜索“homekit”，安装“HomeKit-ESP8266”
+
+<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303175023078.png" alt="image-20210303175023078" style="zoom:50%;" />
+
+
+
 ### 二、硬件链接
 
-
+将LED的正极连接在Esp8266开发板的IO0口上，负极连接在GND上
 
 ### 三、代码修改
 
