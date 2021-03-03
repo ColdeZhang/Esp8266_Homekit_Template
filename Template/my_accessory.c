@@ -26,6 +26,7 @@ void my_accessory_identify(homekit_value_t_value){
  * 每个服务（service）都有若干种类型的变量，其中分为必须（required）和可选（optional）两种
  * 具体的变量类型以及是否必须可在下面的链接中查看（p158）
  * https://github.com/ColdeZhang/Esp8266_Homekit_Template/blob/main/HAP-Specification-Non-Commercial-Version.pdf
+ * 如：ON
  * ｜初始值｜
  * 对应变量类型的说明赋予其一个初始值
 */
@@ -41,12 +42,14 @@ homekit_accessory_t *accessories[] = {
     /*
      * 定义第一个配件的属性
      * ｜编号｜从1开始，每个配件需要一个单独的编号
+     * 如：1
      * ｜种类｜即配件所属的类别可在如下链接的文件中查看（p252）
      * https://github.com/ColdeZhang/Esp8266_Homekit_Template/blob/main/HAP-Specification-Non-Commercial-Version.pdf
+     * 如：homekit_accessory_category_switch
      * 
      * 注意：种类需要使用大写字母，空格使用下划线（_）代替
     */
-    HOMEKIT_ACCESSORY(.id=/*编号*/, .category=/*种类*/, .services=(homekit_service_t*[]) {
+    HOMEKIT_ACCESSORY(.id=/*编号*/, .category=homekit_accessory_category_/*种类*/, .services=(homekit_service_t*[]) {
         /*
          * 配件基本信息定义
          * 从上到下依次为：
@@ -69,7 +72,9 @@ homekit_accessory_t *accessories[] = {
          * 定义配件的服务
          * ｜服务名｜可在下面链接的文件中查看（p134）
          * https://github.com/ColdeZhang/Esp8266_Homekit_Template/blob/main/HAP-Specification-Non-Commercial-Version.pdf
+         * 如：SWITCH
          * ｜是否为主服务｜每个配件除信息服务外有且仅有一个主服务，如果是主服务则填写true，否则可不填（删除.primmary）
+         * 如：true
          * 
          * 注意：服务的变量名前需要加&
         */
