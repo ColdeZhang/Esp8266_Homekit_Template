@@ -27,9 +27,9 @@ Template of Homekit for the Esp8266 based on Arduino
 
 4.关闭窗口，打开“工具”>“开发版”>“开发版管理器”
 
-![image-20210303172359306](https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303172359306.png?token=AHDJQ6ARXUN6ORUZVMZZKHDAH5K7A)
+<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303172359306.png?token=AHDJQ6ARXUN6ORUZVMZZKHDAH5K7A" alt="image-20210303172359306" style="zoom:50%;" />
 
-5.搜索“esp8266”并安装
+5.搜索“esp8266”并安装（文件较大，国内安装速度很慢且容易失败，多尝试几次即可）
 
 <img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303174754999.png" alt="image-20210303174754999" style="zoom:50%;" />
 
@@ -156,17 +156,44 @@ homekit_accessory_t *accessories[] = {
 
 #### 2.wifi_info.h
 
+找到如下两行：
 
+```c
+const char *ssid = "Your-Wifi-Name";
+const char *password = "Your-Wifi-Password";
+```
+
+将第一行引号之间的内容替换为你的Wifi名称（区分大小写）。
+
+在第二行引号之间的内容替换为你的Wifi密码。
 
 #### 3.Template.ino
 
 
 
-### 四、上传验证
+### 四、上传程序
 
-1.确定你所需要的智能配件功能
-2.前往 https://github.com/ColdeZhang/Esp8266_Homekit_Template/blob/main/HAP-Specification-Non-Commercial-Version.pdf 在p134查找对应的服务（service）
-3.根据文档中服务（service）对变量（characteristic）的要求，创建变量（characteristic）
+打开Arduino，点击菜单栏中的“工具”，选择“开发板”>“ESP8266 Boards”>“Generic ESP8266 Module”。
+
+再次点击菜单栏中的“工具”可以观察到相比于之前多出了一些选项，其中一些项目修改成如下内容：
+
+- LwIP Variant: `v2 Lower Memory`
+- Debug Level: `无`
+- Espressif FW: `nonos-sdk 2.2.1+119(191122)` 
+- SSL Support: `Basic SSL ciphers (lower ROM use)`
+- VTables: `Flash`
+- Erase Flash:  `All Flash Contents` 
+- CPU Frequency: `160MHz`
+
+修改完成后“工具”菜单应该如图所示：
+
+<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210304181500770.png" alt="image-20210304181500770" style="zoom:50%;" />
+
+最后将你的ESP8266开发板连接至电脑，再在“工具”菜单内选择端口（一般情况下唯一），点击上传按钮<img src="/Users/Unlimited_Deer_/Library/Application%20Support/typora-user-images/image-20210304181732200.png" alt="image-20210304181732200" style="zoom:40%;" />等待程序上传。
+
+### 五、连接验证
+
+
 
 
 
