@@ -9,7 +9,7 @@ Template of Homekit for the Esp8266 based on Arduino
 
 ## 0x0 快速入门
 
-以点亮一个LED灯为例的完全新手的简易使用方法：
+以点亮一个LED灯为例的，】完全新手的简易使用方法：
 
 ### 一、环境搭建
 
@@ -35,7 +35,7 @@ Template of Homekit for the Esp8266 based on Arduino
 
 6.关闭窗口，打开“工具”>“管理库...”
 
-<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303174922691.png" alt="image-20210303174922691" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210303174922691.png" alt="image-20210303174922691" style="zoom: 50%;" />
 
 7.搜索“homekit”，安装“HomeKit-ESP8266”
 
@@ -55,15 +55,13 @@ Template of Homekit for the Esp8266 based on Arduino
 
 ##### （1）创建变量
 
-找到以下三行：
+找到以下行：
 
 ```c
-homrkit_characteristic_t /*变量A*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型X*/,/*变量初始值*/);
-homrkit_characteristic_t /*变量B*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型Y*/,/*变量初始值*/);
-homrkit_characteristic_t /*变量C*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型Z*/,/*变量初始值*/);
+homrkit_characteristic_t /*变量名*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型*/,/*变量初始值*/);
 ```
 
-删去其中两行，仅保留一行并修改为如下代码：
+修改`/*变量名*/`为`cha_on`，修改`/*变量类型*/`为`ON`，修改`/*变量初始值*/`为`false`，修改完成后应该是这个样子：
 
 ```c
 homrkit_characteristic_t cha_on = HOMEKIT_CHARACTERISTIC_(ON, false);
@@ -74,85 +72,36 @@ homrkit_characteristic_t cha_on = HOMEKIT_CHARACTERISTIC_(ON, false);
 找到以下代码：
 
 ```c
-/*
- * 定义配件们的属性
- * 存储在accessories[]中
-*/
-homekit_accessory_t *accessories[] = {
-    /*
-     * 定义第一个配件的属性
-     * ｜编号｜从1开始，每个配件需要一个单独的编号
-     * 如：1
-     * ｜种类｜即配件所属的类别可在如下链接的文件中查看（p252）
-     * https://github.com/ColdeZhang/Esp8266_Homekit_Template/blob/main/HAP-Specification-Non-Commercial-Version.pdf
-     * 如：homekit_accessory_category_switch
-     * 
-     * 注意：种类需要使用大写字母，空格使用下划线（_）代替
-    */
-    HOMEKIT_ACCESSORY(.id=/*编号*/, .category=homekit_accessory_category_/*种类*/, .services=(homekit_service_t*[]) {
-        /*
-         * 配件基本信息定义
-         * 从上到下依次为：
-         * ｜配件名称｜引号内可以随便写，但是同一个局域网内不能出现同样名字的配件
-         * ｜制造商名｜引号内可以随便写
-         * ｜序列号码｜引号内可以随便写
-         * ｜硬件型号｜引号内可以随便写
-         * ｜固件版本｜引号内可以随便写
-        */
-        HOMEKIT_SERVICE(ACCESSORY_INFORMATION, .characteristics=(homekit_characteristic_t*[]) {
-            HOMEKIT_CHARACTERISTIC(NAME, "未命名配件"),
-            HOMEKIT_CHARACTERISTIC(MANUFACTURER, "Arduino HomeKit"),
-            HOMEKIT_CHARACTERISTIC(SERIAL_NUMBER, "0123456"),
-            HOMEKIT_CHARACTERISTIC(MODEL, "ESP8266/ESP32"),
-            HOMEKIT_CHARACTERISTIC(FIRMWARE_REVISION, "1.0"),
-            HOMEKIT_CHARACTERISTIC(IDENTIFY, my_accessory_identify),
-            NULL
-        }),
-        /*
-         * 定义配件的服务
-         * ｜服务名｜可在下面链接的文件中查看（p134）
-         * https://github.com/ColdeZhang/Esp8266_Homekit_Template/blob/main/HAP-Specification-Non-Commercial-Version.pdf
-         * 如：SWITCH
-         * ｜是否为主服务｜每个配件除信息服务外有且仅有一个主服务，如果是主服务则填写true，否则可不填（删除.primmary）
-         * 如：true
-         * 
-         * 注意：服务的变量名前需要加&
-        */
-        HOMEKIT_SERVICE(/*服务名*/, .primary=/*是否为主服务*/, .characteristics=(homekit_characteristic_t*[]) {
-            &/*变量A*/,
-			&/*变量B*/,
-            &/*变量C*/
-            NULL
-        }),
-        NULL
-    }),
-    NULL
-};
+HOMEKIT_ACCESSORY(.id=/*编号*/, .category=homekit_accessory_category_/*种类*/, .services=(homekit_service_t*[])
 ```
 
-修改为（可以删去所有注释）：
+修改`/*编号*/`为`1`，`/*种类*/`为`switch`，修改完后应该是这个样子：
 
 ```c
-homekit_accessory_t *accessories[] = {
-    HOMEKIT_ACCESSORY(.id=1, .category=homekit_accessory_category_switch, .services=(homekit_service_t*[]) {
-        HOMEKIT_SERVICE(ACCESSORY_INFORMATION, .characteristics=(homekit_characteristic_t*[]) {
-            HOMEKIT_CHARACTERISTIC(NAME, "开关-测试01"),
-            HOMEKIT_CHARACTERISTIC(MANUFACTURER, "Arduino HomeKit"),
-            HOMEKIT_CHARACTERISTIC(SERIAL_NUMBER, "0123456"),
-            HOMEKIT_CHARACTERISTIC(MODEL, "ESP8266/ESP32"),
-            HOMEKIT_CHARACTERISTIC(FIRMWARE_REVISION, "1.0"),
-            HOMEKIT_CHARACTERISTIC(IDENTIFY, my_accessory_identify),
-            NULL
-        }),
-        HOMEKIT_SERVICE(SWITCH, .primary=true, .characteristics=(homekit_characteristic_t*[]) {
-            &cha_on,
-            NULL
-        }),
-        NULL
-    }),
-    NULL
-};
+HOMEKIT_ACCESSORY(.id=1, .category=homekit_accessory_category_switch, .services=(homekit_service_t*[])
 ```
+
+##### （3）服务设置
+
+找到以下代码：
+
+```c
+HOMEKIT_SERVICE(/*服务名*/, .primary=/*是否为主服务*/, .characteristics=(homekit_characteristic_t*[]) {
+	&/*变量名*/,
+	NULL
+}),
+```
+
+修改`/*服务名*/`为`SWITCH`，修改`/*是否为主服务*/`为`true`，修改`/*变量名*/`为`cha_on`，修改完后应该是这个样子：
+
+```c
+HOMEKIT_SERVICE(SWITCH, .primary=true, .characteristics=(homekit_characteristic_t*[]) {
+	&cha_on,
+	NULL
+}),
+```
+
+
 
 #### 2.wifi_info.h
 
@@ -163,9 +112,9 @@ const char *ssid = "Your-Wifi-Name";
 const char *password = "Your-Wifi-Password";
 ```
 
-将第一行引号之间的内容替换为你的Wifi名称（区分大小写）。
+将第一行引号之间的`Your-Wifi-Name`替换为你的Wifi名称（区分大小写）。
 
-在第二行引号之间的内容替换为你的Wifi密码。
+在第二行引号之间的`Your-Wifi-Password`替换为你的Wifi密码。
 
 #### 3.Template.ino
 
@@ -189,11 +138,14 @@ const char *password = "Your-Wifi-Password";
 
 <img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210304181500770.png" alt="image-20210304181500770" style="zoom:50%;" />
 
-最后将你的ESP8266开发板连接至电脑，再在“工具”菜单内选择端口（一般情况下唯一），点击上传按钮<img src="/Users/Unlimited_Deer_/Library/Application%20Support/typora-user-images/image-20210304181732200.png" alt="image-20210304181732200" style="zoom:40%;" />等待程序上传。
+最后将你的ESP8266开发板连接至电脑，再在“工具”菜单内选择正确的端口（一般情况下唯一），点击上传按钮<img src="/Users/Unlimited_Deer_/Library/Application%20Support/typora-user-images/image-20210304181732200.png" alt="image-20210304181732200" style="zoom:40%;" />等待程序上传。
 
 ### 五、连接验证
 
-
+1. 确保你的手机与ESP8266处于同一Wifi内；
+2. 打开家庭（Home）App<img src="/Users/Unlimited_Deer_/Desktop/%E6%88%AA%E5%B1%8F%202021-03-05%2017.31.56.png" style="zoom:25%;" />，点击右上角加号，点击“添加或扫描配件”<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/%E6%88%AA%E5%B1%8F%202021-03-05%2017.34.31.png" style="zoom:20%;" />；
+3. 点击最下方的“我没有或无法扫描代码”，如果一切正常那么此时应该会出现配件的图标；
+4. 点击配件的图标，输入代码“11111111”（八个1）；
 
 
 
@@ -247,7 +199,7 @@ const char *password = "Your-Wifi-Password";
 
 #### 3.wifi_info.h
 
-该文件专用于保存与处理wifi连接方法。
+该文件专用于配置、保存与处理wifi的连接与方法。
 
 
 

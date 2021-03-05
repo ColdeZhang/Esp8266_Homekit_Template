@@ -30,9 +30,7 @@ void my_accessory_identify(homekit_value_t_value){
  * ｜初始值｜
  * 对应变量类型的说明赋予其一个初始值
 */
-homrkit_characteristic_t /*变量A*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型X*/,/*变量初始值*/);
-homrkit_characteristic_t /*变量B*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型Y*/,/*变量初始值*/);
-homrkit_characteristic_t /*变量C*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型Z*/,/*变量初始值*/);
+homrkit_characteristic_t /*变量名*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型*/,/*变量初始值*/);
 
 /*
  * 定义配件们的属性
@@ -79,9 +77,7 @@ homekit_accessory_t *accessories[] = {
          * 注意：服务的变量名前需要加&
         */
         HOMEKIT_SERVICE(/*服务名*/, .primary=/*是否为主服务*/, .characteristics=(homekit_characteristic_t*[]) {
-            &/*变量A*/,
-			&/*变量B*/,
-            &/*变量C*/
+            &/*变量名*/,
             NULL
         }),
         NULL

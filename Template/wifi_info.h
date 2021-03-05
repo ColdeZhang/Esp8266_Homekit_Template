@@ -1,3 +1,11 @@
+/*
+ * wifi_info.h
+ * 
+ * 该文件专用于配置、保存与处理wifi的连接与方法。
+ * 
+ * 一般情况下只需要修改第18行与19行引号之间的内容，分别为wifi的名称与密码
+ */
+
 #ifndef WIFI_INFO_H_
 #define WIFI_INFO_H_
 
