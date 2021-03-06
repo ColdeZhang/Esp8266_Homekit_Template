@@ -136,7 +136,7 @@ const char *password = "Your-Wifi-Password";
 
 修改完成后“工具”菜单应该如图所示：
 
-<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210304181500770.png" alt="image-20210304181500770" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210304181500770.png" alt="image-20210304181500770" style="zoom: 33%;" />
 
 最后将你的ESP8266开发板连接至电脑，再在“工具”菜单内选择正确的端口（一般情况下唯一），点击上传按钮<img src="/Users/Unlimited_Deer_/Library/Application%20Support/typora-user-images/image-20210304181732200.png" alt="image-20210304181732200" style="zoom:40%;" />等待程序上传。
 
