@@ -118,6 +118,29 @@ const char *password = "Your-Wifi-Password";
 
 #### 3.Template.ino
 
+##### （1）定义引脚与触发器
+
+在your_setup()内添加：
+
+```c
+pinMode(0, OUTPUT);
+digitalWrite(0, HIGH);
+cha_on.setter = cha_on_setter;
+```
+
+##### （2）设置触发器：
+
+在最末尾添加如下代码：
+
+```c
+void cha_on_setter(const homekit_value_t value) {
+  bool on = value.bool_value;
+  cha_on.value.bool_value = on;
+  LOG_D("Switch: %s", on ? "ON" : "OFF");
+  digitalWrite(0, on ? HIGH : LOW);
+}
+```
+
 
 
 ### 四、上传程序
@@ -144,8 +167,9 @@ const char *password = "Your-Wifi-Password";
 
 1. 确保你的手机与ESP8266处于同一Wifi内；
 2. 打开家庭（Home）App<img src="/Users/Unlimited_Deer_/Desktop/%E6%88%AA%E5%B1%8F%202021-03-05%2017.31.56.png" style="zoom:25%;" />，点击右上角加号，点击“添加或扫描配件”<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/%E6%88%AA%E5%B1%8F%202021-03-05%2017.34.31.png" style="zoom:20%;" />；
-3. 点击最下方的“我没有或无法扫描代码”，如果一切正常那么此时应该会出现配件的图标；
-4. 点击配件的图标，输入代码“11111111”（八个1）；
+3. 点击最下方的“我没有或无法扫描代码”，如果一切正常那么此时应该会出现配件的图标<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/IMG_2618.jpg" style="zoom:20%;" />；
+4. 点击配件的图标，会提示“未认证配件”的警告<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/IMG_2619.jpg" style="zoom:20%;" />选择“仍然添加”；
+5. 输入代码“11111111”（八个1），稍等一会儿即可配对成功；
 
 
 
