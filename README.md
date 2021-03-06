@@ -229,3 +229,7 @@ void cha_on_setter(const homekit_value_t value) {
 
 
 
+## 0x2 设置一个传感器
+
+
+
