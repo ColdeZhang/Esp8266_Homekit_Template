@@ -15,8 +15,15 @@
 
 #define LOG_D(fmt, ...)   printf_P(PSTR(fmt "\n") , ##__VA_ARGS__);
 
-	
-//引入my_accessory.c中的配置与变量
+/* 
+ * 引入my_accessory.c中的配置与变量
+ * 
+ * 由于my_accessory.c是使用c语言编写的，因此想要在Arduino的ino文件中引用
+ * 变量需要使用宏进行如下扩展
+ * 
+ *｜变量名｜
+ * 即在my_accessory.c中定义的变量
+*/
 extern "C" homekit_server_config_t config;
 extern "C" homekit_characteristic_t /*变量名*/;
 
