@@ -161,12 +161,12 @@ void cha_on_setter(const homekit_value_t value) {
 
 <img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210304181500770.png" alt="image-20210304181500770" style="zoom: 33%;" />
 
-最后将你的ESP8266开发板连接至电脑，再在“工具”菜单内选择正确的端口（一般情况下唯一），点击上传按钮<img src="/Users/Unlimited_Deer_/Library/Application%20Support/typora-user-images/image-20210304181732200.png" alt="image-20210304181732200" style="zoom:40%;" />等待程序上传。
+最后将你的ESP8266开发板连接至电脑，再在“工具”菜单内选择正确的端口（一般情况下唯一），点击上传按钮<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210314124254513.png" alt="image-20210314124254513" style="zoom:35%;" />等待程序上传。
 
 ### 五、连接验证
 
 1. 确保你的手机与ESP8266处于同一Wifi内；
-2. 打开家庭（Home）App<img src="/Users/Unlimited_Deer_/Desktop/%E6%88%AA%E5%B1%8F%202021-03-05%2017.31.56.png" style="zoom:25%;" />，点击右上角加号，点击“添加或扫描配件”<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/%E6%88%AA%E5%B1%8F%202021-03-05%2017.34.31.png" style="zoom:20%;" />；
+2. 打开家庭（Home）App<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/%E6%88%AA%E5%B1%8F%202021-03-05%2017.31.56.png" style="zoom:25%;" />，点击右上角加号，点击“添加或扫描配件”<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/%E6%88%AA%E5%B1%8F%202021-03-05%2017.34.31.png" style="zoom:20%;" />；
 3. 点击最下方的“我没有或无法扫描代码”，如果一切正常那么此时应该会出现配件的图标<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/IMG_2618.jpg" style="zoom:20%;" />；
 4. 点击配件的图标，会提示“未认证配件”的警告<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/IMG_2619.jpg" style="zoom:20%;" />选择“仍然添加”；
 5. 输入代码“11111111”（八个1），稍等一会儿即可配对成功；
