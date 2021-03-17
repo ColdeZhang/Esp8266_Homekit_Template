@@ -8,7 +8,6 @@
  * 除非您充分了解或者能理解此文件中已存在于setup()与loop()中的内容，否则请
  * 尽量不要修改或者改写他们中的内容
  * 
- * homekit_storage_reset();擦除配对记录，以便于重新配对
  */
 
 #include <Arduino.h>
@@ -44,6 +43,7 @@ void your_loop(){
 //如果不了解请不要动这段代码
 void setup() {
     your_setup();
+	pinMode(13, INPUT_PULLUP);
 	wifi_connect();
 	arduino_homekit_setup(&config);
 }
@@ -56,6 +56,8 @@ void loop() {
 		next_heap_millis = t + 5 * 1000;
 		PRTLOG("Free heap: %d, HomeKit clients: %d",ESP.getFreeHeap(), arduino_homekit_connected_clients_count());
 	}
+	//重新配对
+	if (digitalRead(13)) homekit_storage_reset();
     your_loop();
     delay(10);
 }
