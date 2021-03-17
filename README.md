@@ -45,11 +45,11 @@ Template of Homekit for the Esp8266 based on Arduino
 
 ### 二、硬件链接
 
-将LED的正极（长的那端）连接在Esp8266开发板的IO0口上，负极（短的那端）连接在GND上。
+将LED的正极（长的那端）连接在Esp8266开发板的IO2口上，负极（短的那端）连接在GND上。
 
 ### 三、代码修改
 
-下载Template内的代码，一共有三个文件。使用Arduino打开Template.ino，另外两个文件会自动被打开。
+下载Template内的代码，一共有三个文件。使用Arduino打开`Template.ino`，另外两个文件会自动被打开。
 
 #### 1.my_accessory.c
 
