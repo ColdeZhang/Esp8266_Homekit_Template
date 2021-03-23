@@ -11,6 +11,8 @@ Template of Homekit for the Esp8266 based on Arduino
 
 以点亮一个LED灯为例的，】完全新手的简易使用方法：
 
+
+
 ### 一、环境搭建
 
 1.前往[Arduino官网](https://www.arduino.cc)下载对应自己系统班的[Arduino IDE](https://www.arduino.cc/en/software)（Windows用户可以前往[应用商店](https://www.microsoft.com/zh-cn/p/arduino-ide/9nblggh4rsd8)下载）并安装。
@@ -46,6 +48,8 @@ Template of Homekit for the Esp8266 based on Arduino
 ### 二、硬件链接
 
 将LED的正极（长的那端）连接在Esp8266开发板的IO2口上，负极（短的那端）连接在GND上。
+
+
 
 ### 三、代码修改
 
@@ -162,6 +166,8 @@ void cha_on_setter(const homekit_value_t value) {
 <img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210304181500770.png" alt="image-20210304181500770" style="zoom: 33%;" />
 
 最后将你的ESP8266开发板连接至电脑，再在“工具”菜单内选择正确的端口（一般情况下唯一），点击上传按钮<img src="https://raw.githubusercontent.com/ColdeZhang/PicGo/master/image-20210314124254513.png" alt="image-20210314124254513" style="zoom:35%;" />等待程序上传。
+
+
 
 ### 五、连接验证
 
