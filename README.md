@@ -53,7 +53,7 @@ Template of Homekit for the Esp8266 based on Arduino
 
 ### 三、代码修改
 
-下载Template内的代码，一共有三个文件。使用Arduino打开`Template.ino`，另外两个文件会自动被打开。
+[下载Template代码](https://github.com/ColdeZhang/Esp8266_Homekit_Template/releases/download/Template/Template.zip)解压后一共有三个文件。使用Arduino打开`Template.ino`，另外两个文件会自动被打开。
 
 #### 1.my_accessory.c
 
@@ -124,11 +124,11 @@ const char *password = "Your-Wifi-Password";
 
 ##### （1）定义引脚与触发器
 
-在your_setup()内添加：
+在your_setup内添加：
 
 ```c
-pinMode(0, OUTPUT);
-digitalWrite(0, HIGH);
+pinMode(2, OUTPUT);
+digitalWrite(2, HIGH);
 cha_on.setter = cha_on_setter;
 ```
 
@@ -140,8 +140,8 @@ cha_on.setter = cha_on_setter;
 void cha_on_setter(const homekit_value_t value) {
   bool on = value.bool_value;
   cha_on.value.bool_value = on;
-  LOG_D("Switch: %s", on ? "ON" : "OFF");
-  digitalWrite(0, on ? HIGH : LOW);
+  PRTLOG("开关状态: %s", on ? "开" : "O关");
+  digitalWrite(2, on ? HIGH : LOW);
 }
 ```
 
