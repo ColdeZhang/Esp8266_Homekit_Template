@@ -31,7 +31,7 @@ extern "C" homekit_characteristic_t /*变量名*/;
 
 //在此处添加你的setup
 void your_setup(){
-
+	
 }
 
 //在此处添加你的loop
