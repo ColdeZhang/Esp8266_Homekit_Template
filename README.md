@@ -4,6 +4,51 @@ Template of Homekit for the Esp8266 based on Arduino
 基于Esp8266的Homekit固件编写方法
 
 
+## 0x0 快速入门
+
+以点亮一个LED灯为例的，完全新手的简易使用方法：
+
+
+### 一、环境搭建
+
+1.前往[Arduino官网](https://www.arduino.cc)下载对应自己系统班的[Arduino IDE](https://www.arduino.cc/en/software)（Windows用户可以前往[应用商店](https://www.microsoft.com/zh-cn/p/arduino-ide/9nblggh4rsd8)下载）并安装。
+
+2.打开Arduino，Windows用户点击“文件”>“首选项”，Mac用户点击左上角“Arduino”>“Preference”。
+
+<img src="https://i.loli.net/2021/04/24/MWrxlJZFi4c9Xuh.png" alt="image-20210303171759207" style="zoom: 50%;" />
+
+3.在“附加开发板管理器网址”一栏填上：
+
+> https://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+<img src="https://i.loli.net/2021/04/24/Aq7T1UCjwM8e5K4.png" alt="image-20210303171849958" style="zoom:33%;" />
+
+4.关闭窗口，打开“工具”>“开发版”>“开发版管理器”
+
+<img src="https://i.loli.net/2021/04/24/M6YvC2IVoUBFybO.png" alt="image-20210303172359306" style="zoom:50%;" />
+
+5.搜索“esp8266”并安装（文件较大，国内安装速度很慢且容易失败，多尝试几次即可）
+
+<img src="https://i.loli.net/2021/04/24/5HvyxTk4IAUqGOW.png" alt="image-20210303174754999" style="zoom:50%;" />
+
+6.关闭窗口，打开“工具”>“管理库...”
+
+<img src="https://i.loli.net/2021/04/24/pBnxL9S8G3hDoUq.png" alt="image-20210303174922691" style="zoom: 50%;" />
+
+7.搜索“homekit”，安装“HomeKit-ESP8266”
+
+<img src="https://i.loli.net/2021/04/24/EZOgIYW2qy4sLwb.png" alt="image-20210303175023078" style="zoom:50%;" />
+
+
+
+### 二、硬件链接
+
+将LED的正极（长的那端）连接在Esp8266开发板的IO2口上，负极（短的那端）连接在GND上。
+
+
+
+### 三、代码修改
+
 从此处[下载Template代码](https://github.com/ColdeZhang/Esp8266_Homekit_Template/releases/download/Template/Template.zip)解压后一共有三个文件。使用Arduino打开`Template.ino`，另外两个文件会自动被打开。
 
 #### 1.my_accessory.c
