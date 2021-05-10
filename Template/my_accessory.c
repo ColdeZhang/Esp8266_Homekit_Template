@@ -30,7 +30,7 @@ void my_accessory_identify(homekit_value_t_value){
  * ｜初始值｜
  * 对应变量类型的说明赋予其一个初始值
 */
-homrkit_characteristic_t /*变量名*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型*/,/*变量初始值*/);
+homekit_characteristic_t /*变量名*/ = HOMEKIT_CHARACTERISTIC_(/*变量类型*/,/*变量初始值*/);
 
 /*
  * 定义配件们的属性
