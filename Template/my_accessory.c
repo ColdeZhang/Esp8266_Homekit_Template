@@ -10,8 +10,8 @@
  * 注意：
  * 1.尽管此文件支持同时定义多个配件（accessory），但是为了便于管理与设置建议不要这么做
  */
-#include <homeKit-ESP8266/homekit.h>
-#include <HomeKit-ESP8266/characteristics.h>
+#include <homekit/homekit.h>
+#include <homekit/characteristics.h>
 
 //配对成功时调用此方法
 void my_accessory_identify(homekit_value_t_value){
