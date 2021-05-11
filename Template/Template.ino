@@ -16,6 +16,7 @@
 
 //用于通过串口输出debug信息
 #define PRTLOG(fmt, ...)   printf_P(PSTR(fmt "\n") , ##__VA_ARGS__);
+static uint32_t next_heap_millis = 0;
 
 /* 
  * 引入my_accessory.c中的配置与变量
@@ -61,6 +62,3 @@ void loop() {
     your_loop();
     delay(10);
 }
-
-
-
